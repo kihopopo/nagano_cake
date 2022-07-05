@@ -4,24 +4,25 @@
       <h3>商品新規登録</h3>
 <!-- form_withにオプション追記 -->
 　　　　<%= form_with model: @item, url: '/items', method: :post do |f| %>
-　　　　 <form>
-          <div class="form-inline">
+　　　　 <form class="form-inline">
+          <div class="form-group">
             <label for="item_name">商品名</label>
             <input type="item_name" class="form-control" id="item_name" placeholder="商品名">
           </div>
           
-  　　      <div class="form-inline">
+  　　      <div class="form-group">
              <label for="item_introduction">商品説明</label>
-             <input type="item_introduction" class="form-control" id="item_name" placeholder="ここに説明文を記述します">
+             <textarea id="item_introduction" class="form-control"  placeholder="ここに説明文を記述します"></textarea>
           </div>
           
           <div class="form-group">
-            <%= f.label :ジャンル %>
-            <%= f.select :genre, ['ケーキ','プリン','焼き菓子','キャンディ'],{include_blank: '--選択してください--'} %>
+             <label for="item_introduction">ジャンル</label>
+             <%= f.select :genre, ['ケーキ','プリン','焼き菓子','キャンディ'],{include_blank: '--選択してください--'} %>
           </div>
            
           <div class="form-group">
-            <%= f.text_field :price, class:"form-control price", autofocus: true, id:"item_price" %>円
+             <label for="item_introduction">税抜価格</label>
+             <input type="item_plice" class="form-control" id="item_price" placeholder="1000">円
           </div>
           
           <div class="form-group">
@@ -32,10 +33,11 @@
             <%= f.label :is_active, '販売準備中', value: 0 %>
           </div>
             
-          <div class="form-group">
-           <%= f.submit "新規登録" %>
+          <div class="center-block">
+            <%= f.submit "新規登録",class:"btn btn-success" %>
           </div>
         <% end %>
+      </form>
     </div>
   </div>
 </div>
