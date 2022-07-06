@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   namespace :admin do
-    get 'items/index'
-    get 'items/new'
-    get 'items/show'
-    get 'items/edit'
+    resources :genres
+  end
+  namespace :admin do
+    resources :items
   end
   namespace :public do
     get 'customers/show'
