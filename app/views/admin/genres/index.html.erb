@@ -1,46 +1,34 @@
-       <%= form_with model: @genre, url: '/admin/genres', method: :post do |f| %>
+       <%= form_with url: admin_genres_path  do |f| %>
         <h4>ジャンル一覧・追加</h4>　
         　<div class="form-inline">
             <label for="genre_name">ジャンル名</label>
-            <input type="genre_name" class="form-control" id="genre_name" placeholder="ジャンル名">
+            <%= f.text_field :genre_name %>
             <%= f.submit "新規登録",class:"btn btn-success" %>
         　</div>
          <%end%>
          
-     <%= form_with model: @genre, url: '/admin/genres', method: :post do |f| %>
-      <div class="col-5 ml-3">
+         
+     <%= form_with model: @genres, url: '/admin/genres', method: :post do |f| %>
+       <div class="col-5 ml-3">
         <table class="table">
          <thead>
           <tr class="table-secondary">
+           <th></th>
            <th>ジャンル</th>
            <th></th>
            <th></th>
           </tr>
-         </thead>
-         <tbody>
-          <tr>
-           <td>ケーキ</td>
+          <tr></tr>
+           <td><%= @genre.name %></td>
            <td></td>
-           <td><%= f.submit "編集する",class:"btn btn-success" %></td>
-          </tr>
-          <tr>
-            <td>プリン</td>
-            <td></td>
-            <td><%= f.submit "新規する",class:"btn btn-success" %></td>
-          </tr>
-           <tr>
-            <td>焼き菓子</td>
-            <td></td>
-            <td><%= f.submit "新規する",class:"btn btn-success" %></td>
-          </tr>
-           <tr>
-            <td>キャンディ</td>
-            <td></td>
-            <td><%= f.submit "新規する",class:"btn btn-success" %></td>
-          </tr>
-         </tbody>
-       </table>
+           <td></td>
+           <td></td>
+         </tr>
+         </thead>
+        </table>
       </div>
-     <%end%>
-       
-          
+    <%end%>
+    
+
+         
+    
