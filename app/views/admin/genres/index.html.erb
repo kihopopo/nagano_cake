@@ -7,7 +7,7 @@
             <thead>
              <tr>
               <th> <label for="name">ジャンル名</label></th>
-              <th><%= f.text_field :name %></th>
+              <th><%= f.text_field :name, :placeholder =>"ジャンル名" %></th>
               <th> <%= f.submit "新規登録",class:"btn btn-success" %></th>
              </tr>
             </thead>
@@ -33,8 +33,7 @@
            <tr>
             <td><%= genre.name %></td>
             <td></td>
-            <%= form_with model: @genres, url: admin_genres_path  do |f| %>
-            <td><%= f.submit "編集する",class:"btn btn-success" %></td>
+            <td><%=link_to edit_admin_genre_path(genre), class:"btn btn-sm btn-success" do %>編集する</td>
             <%end%>
            </tr>
           <%end%>

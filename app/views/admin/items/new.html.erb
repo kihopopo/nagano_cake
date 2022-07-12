@@ -3,26 +3,25 @@
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h3>商品新規登録</h3>
 <!-- form_withにオプション追記 -->
-　　　　<%= form_with model: @item, url: '/items', method: :post do |f| %>
-　　　　 <form class="form-inline">
+　　　　<%= form_with model: @item, url: '/admin/items', method: :post do |f| %>
           <div class="form-group">
             <label for="item_name">商品名</label>
-            <input type="item_name" class="form-control" id="item_name" placeholder="商品名">
+            <%= f.text_field :name, :placeholder =>"商品名" %>
           </div>
           
   　　      <div class="form-group">
              <label for="item_introduction">商品説明</label>
-             <textarea id="item_introduction" class="form-control"  placeholder="ここに説明文を記述します"></textarea>
+             <%= f.text_area :introduction, :placeholder =>"ここに説明文を記載します" %>
           </div>
           
           <div class="form-group">
-             <label for="item_introduction">ジャンル</label>
-             <%= f.select :genre, ['ケーキ','プリン','焼き菓子','キャンディ'],{include_blank: '--選択してください--'} %>
+             <label for="item_genre_id">ジャンル</label>
+             <%= f.select :genre_id, ['ケーキ','プリン','焼き菓子','キャンディ'],{include_blank: '--選択してください--'} %>
           </div>
            
           <div class="form-group">
              <label for="item_introduction">税抜価格</label>
-             <input type="item_plice" class="form-control" id="item_price" placeholder="1000">円
+             <%= f.text_field :price, :placeholder =>"1000" %>円
           </div>
           
           <div class="form-group">
