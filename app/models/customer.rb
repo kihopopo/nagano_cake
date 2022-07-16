@@ -1,4 +1,5 @@
 class Customer < ApplicationRecord
+   validates checked, inclusion: [true, false]
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
