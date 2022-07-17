@@ -1,10 +1,11 @@
 class Customer < ApplicationRecord
-   validates checked, inclusion: [true, false]
+   #validates checked, inclusion: [true, false]
+   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
  def full_name
-   self.first_name  
+   self.last_name + " " + self.first_name
  end
 end
