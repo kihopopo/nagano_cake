@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   end
   root to: "public/homes#top"
   get '/about' => 'public/homes#about'
+  
+  get 'customers/my_page' => 'public/customers#show'
+  
   namespace :admin do
     resources :genres
   end
@@ -15,9 +18,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :customers
   end
-  namespace :public do
-    resources :customers
-  end
+  
   namespace :public do
     get 'items/index'
   end
