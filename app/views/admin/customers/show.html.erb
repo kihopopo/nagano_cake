@@ -1,7 +1,7 @@
-<div class = "container">
-     <div class = "row">
-         <div class = "col-3">
-             <h3>会員情報</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-9 px-5 px-sm-0 mx-auto">
+             <h3><%= @customer.full_name %>さんの会員詳細</h3>
               <table class="table">
                 <tbody>
                     <tr>
@@ -39,6 +39,8 @@
     　               </tr>
                 </tbody>
             </table>
+            <%=link_to edit_admin_customer_path(@customer), class:"btn btn-sm btn-success" do %>編集する
+            <% end %>
          </div>
      </div>
  </div>
