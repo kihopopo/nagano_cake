@@ -9,21 +9,11 @@ class Item < ApplicationRecord
         (self.price*1.10).round
     end
     
-    def get_image(width, height)
+  def get_image(width, height)
     unless image.attached?
-      file_path = Rails.root.join('app/assets/images/no_image.jpg')
-      byebug
-      image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+      file_path = Rails.root.join('app/assets/images/noimage.jpg')
+      image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpg')
     end
     image.variant(resize_to_limit: [width, height]).processed
-  end
-  
-  def get_profile_image(width, height)
-    unless profile_image.attached?
-      file_path = Rails.root.join('app/assets/images/no_image.jpg')
-      byebug
-      profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
-    end
-    profile_image.variant(resize_to_limit: [width, height]).processed
   end
 end

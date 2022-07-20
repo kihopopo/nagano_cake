@@ -11,10 +11,10 @@
           <th>ジャンル</th>
           <th>ステータス</th>
         </tr>
-        <% @items.each do |item| %>
+        <% @items.each_with_index do |item,i| %>
           <tr>
            <td>
-            <%= item.id %>
+            <%= i+1 %>
            </td>
             <td>
              <%= link_to item.name, admin_item_path(item.id) %>
@@ -23,7 +23,7 @@
              <%= item.price %>
             </td>
             <td>
-             <%#= item.genre.name %>
+             <%= item.genre.name %>
             </td>
             <td>
              <%= item.is_active %> 
