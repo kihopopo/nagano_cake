@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-9 px-5 px-sm-0 mx-auto">
+    <h2>本当に退会しますか？</h2>
+     <div>
+         <p>退会すると、会員登録情報や</p>
+         <p>これまでの購入履歴が閲覧できなくなります。</p>
+         <p>退会する場合は、「退会する」をクリックしてください。</p>
+     </div>
+     <div>
+     　<%= link_to '退会しない',customers_my_page_path(@customer) %>
+     　<%= link_to "退会する",customers_withdraw_path(@customer), method: :patch %>
+     </div>
+    </div>
+  </div>
+ </div>

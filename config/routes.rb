@@ -26,7 +26,8 @@ Rails.application.routes.draw do
   get 'customers/my_page' => 'public/customers#show'
   get 'customers/information/edit' => 'public/customers#edit'
   patch 'customers/information' => 'public/customers#update'
-  #get 'customers/unsubscibe' => 'public/customers#unsubscibe'
+  get 'customers/unsubscribe' => 'public/customers#unsubscribe'
+  patch 'customers/withdraw' => 'public/customers#withdraw'
   
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
