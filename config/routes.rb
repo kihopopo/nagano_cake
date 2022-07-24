@@ -11,8 +11,6 @@ Rails.application.routes.draw do
   root to: "public/homes#top"
   get '/about' => 'public/homes#about'
   
-  get 'customers/my_page' => 'public/customers#show'
-  
   namespace :admin do
     resources :genres
     resources :items
@@ -20,9 +18,15 @@ Rails.application.routes.draw do
   end
   
   
-  namespace :public do
-    get 'items/index'
+  scope module: :public do
+    resources :address
+    resources :items
   end
+  
+  get 'customers/my_page' => 'public/customers#show'
+  get 'customers/information/edit' => 'public/customers#edit'
+  patch 'customers/information' => 'public/customers#update'
+  
   
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

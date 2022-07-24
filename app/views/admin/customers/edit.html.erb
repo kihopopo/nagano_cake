@@ -41,7 +41,8 @@
 　　　　    </tr>
 　　　　    <tr>
 　　　　      <td>会員ステータス</td>
-　　　　      <td><%= f.radio_button :is_deleted, '有効' %>
+　　　　      <td>
+　　　　        <%= f.radio_button :is_deleted, '有効' %>
                 <%= f.label :is_deleted, '有効', value: 1 %>
                 <%= f.radio_button :is_deleted, '退会' %>
                 <%= f.label :is_deleted, '退会', value: 0 %>
