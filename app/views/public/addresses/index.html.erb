@@ -8,7 +8,7 @@
 　　　　   <tbody>
 　　　　    <tr>
 　　　　      <td>郵便番号（ハイフンなし)</td>
-　　　　      <td><%= f.text_field :potal_code %></td>
+　　　　      <td><%= f.text_field :postal_code %></td>
 　　　　      <td></td>
 　　　　      <td></td>
 　　　　    </tr>
@@ -39,7 +39,7 @@
          <tbody>
           <% @addresses.each do |address| %>
            <tr>
-            <td><%= address.potal_code %></td>
+            <td><%= address.postal_code %></td>
             <td><%= address.address %></td>
             <td><%= address.name %></td>
             <td><%=link_to edit_address_path(address), class:"btn btn-sm btn-success" do %>編集する

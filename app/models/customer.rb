@@ -13,5 +13,5 @@ class Customer < ApplicationRecord
    self.first_name_kana + " " + self.last_name_kana
  end
  
- enum is_deleted: {"退会": true,"有効": false}
+ enum is_deleted: {"退会": true, "有効": false}
 end
