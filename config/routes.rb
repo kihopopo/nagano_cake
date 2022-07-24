@@ -19,14 +19,14 @@ Rails.application.routes.draw do
   
   
   scope module: :public do
-    resources :address
+    resources :addresses
     resources :items
   end
   
   get 'customers/my_page' => 'public/customers#show'
   get 'customers/information/edit' => 'public/customers#edit'
   patch 'customers/information' => 'public/customers#update'
-  
+  #get 'customers/unsubscibe' => 'public/customers#unsubscibe'
   
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
