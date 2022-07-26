@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :public do
+    get 'cart_items/index'
+  end
   devise_for :admin,skip: [:registrations, :passwords],controllers: {
   sessions: "admin/sessions"
 }
@@ -21,6 +24,7 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :addresses
     resources :items
+    resources :cart_items
   end
   
   get 'customers/my_page' => 'public/customers#show'

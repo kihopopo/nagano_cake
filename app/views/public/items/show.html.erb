@@ -23,6 +23,18 @@
     　  <td></td>
     　  <td>¥<%= @item.add_tax_price.to_s(:delimited) %>(税込)</td>
     　</tr>
+    　<tr>
+    　  <td>
+    　    <%= form_with model: @item do |f| %>
+    　   <%= f.select :amount, [['1',1], ['2',2], ['3',3]], {include_blank: '個数選択'} %>
+    　   <% end %>
+    　  </td>
+    　  <td>
+    　   <%=link_to cart_items_path, class:"btn btn-sm btn-success" do %>
+    　   カートに入れる
+    　   <% end %>
+    　  </td>
+    　</tr>
     </tbody>
    </table>
   </div>
