@@ -11,20 +11,28 @@
           <th>小計</th>
           <th></th>
         </tr>
-        <%#@cart_items.each do |cart_item| %>
+        <%@cart_items.each do |cart_item| %>
          <tr>
            <td>
-            <%#= customer.id %>
+            <%= cart_item.item.name %>
            </td>
            <td>
-            <%#= link_to customer.full_name,admin_customer_path(customer.id) %>
+            <%= cart_item.item.with_tax_price%>
            </td>
            <td>
-            <%#= customer.email %>
+            <%= cart_item.amount %>
            </td>
            <td>
-            <%#= customer.is_deleted  %>
+            <%= cart_item.subtotal%>
            </td>
          </tr>
-        <%#end%>
+        </thead>
+      </table>
+      
+      <table>
+        <td>合計金額</td>
+        <td><% @total +=cart_item.subtotal</td>
+      </table>
+        <%end%>
+        
 
