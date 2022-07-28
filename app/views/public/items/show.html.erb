@@ -25,14 +25,13 @@
     　</tr>
     　<tr>
     　  <td>
-    　    <%= form_with model: @item do |f| %>
+    　    <%= form_with model: @cart_item do |f| %>
     　    <%= f.hidden_field :item_id, :value => @item.id %>
     　   <%= f.select :amount, *[1..10] , {include_blank: '個数選択'} %>
-    　   <% end %>
     　  </td>
     　  <td>
-    　   <%=link_to cart_items_path, class:"btn btn-sm btn-success" do %>
-    　   カートに入れる
+    　   <%= f.submit 'カートに入れる', class:"btn btn-sm btn-success"  %>
+    　   
     　   <% end %>
     　  </td>
     　</tr>

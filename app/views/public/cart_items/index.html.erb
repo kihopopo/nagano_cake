@@ -11,28 +11,30 @@
           <th>小計</th>
           <th></th>
         </tr>
-        <%@cart_items.each do |cart_item| %>
+        <% @cart_items.each do |cart_item| %>
          <tr>
            <td>
             <%= cart_item.item.name %>
            </td>
            <td>
-            <%= cart_item.item.with_tax_price%>
+            <%= cart_item.item.with_tax_price %>
            </td>
            <td>
             <%= cart_item.amount %>
            </td>
            <td>
-            <%= cart_item.subtotal%>
+            <%= cart_item.item.subtotal %>
            </td>
          </tr>
+           <% @total += cart_item.item.subtotal %>
+         <%end%>
         </thead>
       </table>
       
       <table>
         <td>合計金額</td>
-        <td><% @total +=cart_item.subtotal</td>
+        <td><%= @total %></td>
       </table>
-        <%end%>
+        
         
 
