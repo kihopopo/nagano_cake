@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <div class="col-md-10 px-sm-0 mx-auto">
     <h3>ショッピングカート</h3>
      <table class="table table-hover table-inverse">
     　 <thead>
@@ -14,7 +14,7 @@
         <% @cart_items.each do |cart_item| %>
          <tr>
            <td>
-            <%= cart_item.item.name %>
+            <%= image_tag cart_item.item.get_image(50,50) %><%= cart_item.item.name %>
            </td>
            <td>
             <%= cart_item.item.with_tax_price %>
@@ -23,18 +23,29 @@
             <%= cart_item.amount %>
            </td>
            <td>
-            <%= cart_item.item.subtotal %>
+            <%= cart_item.subtotal %>
+           </td>
+           <td>
+            <%=link_to cart_item_path(cart_item), method: :delete, class:"btn btn-sm btn-danger" do %>
+             削除する
+            <%end%>
            </td>
          </tr>
-           <% @total += cart_item.item.subtotal %>
+           <% @total += cart_item.subtotal %>
          <%end%>
+         <tr>
+          <td>
+           <%=link_to items_path, class:"btn btn-primary" do %>
+           買い物を続ける
+           <% end %>
+          </td>
+          <td></td>
+          <td></td>
+          <td>合計金額</td>
+          <td><%= @total %></td>
+          </tr>
         </thead>
       </table>
       
-      <table>
-        <td>合計金額</td>
-        <td><%= @total %></td>
-      </table>
-        
-        
+      
 
