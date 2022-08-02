@@ -4,7 +4,7 @@ class Item < ApplicationRecord
     
     has_one_attached :image
     
-    enum is_active: {"販売中": true,"販売準備中": false}
+    enum is_active: {"販売中": true,"販売停止中": false}
     
     def add_tax_price
         (self.price*1.10).round

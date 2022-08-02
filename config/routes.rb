@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :addresses
     resources :items
+    delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
     resources :cart_items
   end
   
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
   patch 'customers/information' => 'public/customers#update'
   get 'customers/unsubscribe' => 'public/customers#unsubscribe'
   patch 'customers/withdraw' => 'public/customers#withdraw'
+  
   
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
