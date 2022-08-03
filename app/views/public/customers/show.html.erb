@@ -26,13 +26,15 @@
     　                   <td>電話番号</td>
     　                   <td><%= @customer.telephone_number %> </td>
     　               </tr>
-    　               
+
                     <tr>
     　                   <td>メールアドレス</td>
     　                   <td><%= @customer.email %> </td>
     　               </tr>
                 </tbody>
             </table>
+           <strong>配送先</strong><%=link_to addresses_path, class:"btn btn-sm btn-primary" do %>一覧を見る
+           <% end %>
          </div>
      </div>
  </div>

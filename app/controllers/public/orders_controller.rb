@@ -13,15 +13,34 @@ class Public::OrdersController < ApplicationController
 
 
   def index
-    #@orders = Orders.all
+    @orders = Order.all
   end
 
   def show
   end
 
+  def confirm
+    @order = Order.new(order_params)
+    @order.payment_method = params[:order][:payment_method]
+   if params[:order][:select_address] == "1"
+    @order.postal_code = current_customer.postal_code
+    @order.address = current_customer.address
+    @order.name = current_customer.full_name
+   elsif params[:order][:payment_method] == "2"
+    @address = Address.find(params[:order][:address_id])
+    @order.postal_code = @address.postal_code
+    @order.address = @address.address
+    @order.name = @address.name
+   elsif params[:order][:payment_method] == "3"
+    @order.postal_code =  params[:order][:postal_code]
+    @order.address =  params[:order][:address]
+    @order.name =  params[:order][:name]
+   end
+  end
+
   private
 
   def order_params
-    params.require(:order).permit(:name, :postal_code, :address, :shipping_cost, :total_payment, :payment_method, :status)
+  params.require(:order).permit(:payment_method, :postal_code, :address, :name)
   end
 end
