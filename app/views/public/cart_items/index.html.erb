@@ -22,7 +22,7 @@
            </td>
            <td>
             <%= form_with model: @cart_item, url: '/cart_items', method: :patch do |f| %>
-            <%= f.select :amount %>
+            <%= f.select :amount, *[1..10] %>
             <%= f.submit "変更",class:"btn btn-success" %>
             <% end %>
            </td>
@@ -50,6 +50,6 @@
           </tr>
         </thead>
       </table>
-      
-      
+
+
 
