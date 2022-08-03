@@ -6,8 +6,8 @@
          </div>
      </div>
  </div>
-   
- 
+
+
  <div class="col-md-8 offset-md-1">
   <table class="table">
     <tbody>
@@ -28,10 +28,8 @@
     　    <%= form_with model: @cart_item, url: '/cart_items', method: :post do |f| %>
     　    <%= f.hidden_field :item_id, :value => @item.id %>
     　   <%= f.select :amount, *[1..10] , {include_blank: '個数選択'} %>
-    　  </td>
-    　  <td>
     　   <%= f.submit 'カートに入れる', class:"btn btn-sm btn-success"  %>
-    　   
+
     　   <% end %>
     　  </td>
     　</tr>

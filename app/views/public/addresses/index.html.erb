@@ -3,7 +3,7 @@
     <div class="col-sm-12 col-md-8 col-lg-9 px-5 px-sm-0 mx-auto">
       <%= form_with model: @address, url: 'addresses', method: :post do |f| %>
         <h5>配送先登録/一覧</h5>
-   
+
 　　　　  <table class="table">
 　　　　   <tbody>
 　　　　    <tr>
@@ -26,7 +26,7 @@
 　　　　   </tbody>
 　　　　  </table>
 　　　　<% end %>
-　　　
+
         <table class="table">
          <thead>
           <tr class="table-secondary">
@@ -35,7 +35,7 @@
            <th>宛名</th>
            <th></th>
           </tr>
-         </thead> 
+         </thead>
          <tbody>
           <% @addresses.each do |address| %>
            <tr>
@@ -44,7 +44,7 @@
             <td><%= address.name %></td>
             <td><%=link_to edit_address_path(address), class:"btn btn-sm btn-success" do %>編集する
             <% end %>
-            <%=link_to  addresses_path, method: :delete, "data-confirm" => "Are you sure?", class:"btn btn-sm btn-danger" do %>削除する</td>
+            <%=link_to address_path(address), method: :delete, "data-confirm" => "Are you sure?", class:"btn btn-sm btn-danger" do %>削除する</td>
             <% end %>
            </tr>
           <% end %>
@@ -53,4 +53,3 @@
    </div>
   </div>
  </div>
-            

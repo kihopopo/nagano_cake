@@ -5,17 +5,17 @@ class Public::CartItemsController < ApplicationController
     #@total = @cart_items.inject(0){ |sum, item| sum +item.sum_of_price }
     @total= 0
   end
-  
+
   def create
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
     @cart_item.save
     redirect_to cart_items_path
   end
-  
+
   def update
     @cart_item = CartItem.find(params[:id])
-    @cart_item.update(customer_params)
+    @cart_item.update(cart_item_params)
     redirect_to cart_items_path
   end
 
