@@ -1,5 +1,59 @@
-<h3>注文情報確認</h3>
- <h5>支払い方法</h5>
- <%= @order.payment_method_i18n %>
- <h5>お届け先</h5>
- <%= @order.address %>
+<div class="container">
+  <div class="row">
+   <div class="col-lg-8">
+    <h3>注文情報確認</h3>
+     <table class="table table-hover table-inverse">
+    　 <thead>
+        <tr class="table-secondary">
+          <th>商品名</th>
+          <th>単価(税込)</th>
+          <th>数量</th>
+          <th>小計</th>
+          <th></th>
+        </tr>
+       </thead>
+         <% @cart_items.each do |cart_item| %>
+         <tr>
+           <td>
+            <%= image_tag cart_item.item.get_image(50,50) %><%= cart_item.item.name %>
+           </td>
+           <td>
+            <%= cart_item.item.with_tax_price %>
+           </td>
+           <td>
+            <%= cart_item.amount %>
+           </td>
+           <td>
+            <%= cart_item.subtotal %>
+            <% end %>
+           </td>
+         </tr>
+       </table>
+     </div>
+     <div class="col-lg-4">
+      <table class="table table-hover table-inverse">
+       <tr>
+        <td>送料</td>
+        <td></td>
+       </tr>
+       <tr>
+        <td>商品合計</td>
+        <td></td>
+       </tr>
+       <tr>
+        <td>請求金額</td>
+        <td></td>
+       </tr>
+      </table>
+     </div>
+   <div class = "form-group">
+   <h5>支払い方法</h5>
+   <%= @order.payment_method_i18n %>
+
+   <h5>お届け先</h5>
+   〒 <%= @order.postal_code %>
+   <%= @order.address %>
+   <%= @order.name %>
+   </div>
+  </div>
+ </div>
