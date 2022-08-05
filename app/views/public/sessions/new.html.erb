@@ -4,7 +4,7 @@
       <h3>ログイン</h3>
        <h6>会員の方はこちらからログイン</h6>
        <table class = "table">
-        <tr> 
+        <tr>
          <td>
          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
          <div class="field">
@@ -15,7 +15,7 @@
          </div>
          </td>
         </tr>
-        <tr> 
+        <tr>
          <td>
          <div class="field">
           <%= f.label :パスワード %><br />
@@ -25,7 +25,7 @@
          </div>
          </td>
         </tr>
-        <tr> 
+        <tr>
          <td>
          </td>
          <td>
@@ -36,13 +36,6 @@
          </td>
         </tr>
        </table>
-       
-       
-
-  
-
-        
-        <%= render "public/shared/links" %>
       </div>
     </div>
   </div>

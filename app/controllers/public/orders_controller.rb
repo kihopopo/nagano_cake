@@ -22,6 +22,7 @@ class Public::OrdersController < ApplicationController
   def confirm
     @cart_items = CartItem.all
     @order = Order.new(order_params)
+    @order.customer_id = current_customer.id
     @order.payment_method = params[:order][:payment_method]
    if params[:order][:select_address] == "1"
     @order.postal_code = current_customer.postal_code

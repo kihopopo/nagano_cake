@@ -35,7 +35,7 @@
             <%end%>
            </td>
          </tr>
-           <% @total += cart_item.subtotal %>
+         <% @total += cart_item.subtotal %>
          <%end%>
          <tr>
           <td>
@@ -50,6 +50,14 @@
           </tr>
         </thead>
       </table>
+
+
+     <%=link_to new_order_path, class:"btn btn-sm btn-success" do %>情報入力画面に進む
+     <% end %>
+    </div
+   </div>
+ </div>
+
 
 
 
