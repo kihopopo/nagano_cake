@@ -13,14 +13,14 @@ class Public::OrdersController < ApplicationController
 
 
   def index
-    @orders = Order.all
+    @orders = current_customer.cart_items
   end
 
   def show
   end
 
   def confirm
-    @cart_items = CartItem.all
+    @cart_items = current_customer.cart_items
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     @order.payment_method = params[:order][:payment_method]

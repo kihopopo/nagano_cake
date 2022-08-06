@@ -33,8 +33,14 @@
     　               </tr>
                 </tbody>
             </table>
-           <strong>配送先</strong><%=link_to addresses_path, class:"btn btn-sm btn-primary" do %>一覧を見る
+           <div class = "form-group">
+           <strong>配送先　</strong><%=link_to addresses_path, class:"btn btn-sm btn-primary" do %>一覧を見る
            <% end %>
+           </div>
+           <div class = "form-group">
+           <strong>注文履歴</strong><%=link_to orders_path, class:"btn btn-sm btn-primary" do %>一覧を見る
+           <% end %>
+           </div>
          </div>
      </div>
  </div>

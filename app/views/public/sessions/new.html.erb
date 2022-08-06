@@ -3,10 +3,10 @@
     <div class = "col-8">
       <h3>ログイン</h3>
        <h6>会員の方はこちらからログイン</h6>
+       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
        <table class = "table">
         <tr>
          <td>
-         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
          <div class="field">
           <%= f.label :メールアドレス %><br />
          </td>
@@ -32,10 +32,10 @@
           <div class="actions">
           <%= f.submit "ログイン",class:"btn btn-sm btn-primary w-25" %>
           </div>
-          <% end %>
          </td>
         </tr>
        </table>
+      <% end %>
       </div>
     </div>
   </div>
