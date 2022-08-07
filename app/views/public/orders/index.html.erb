@@ -1,6 +1,6 @@
  <div class="container">
   <div class="row">
-    <div class="col-md-10 px-5 px-sm-0 mx-auto">
+    <div class="col-md-12 px-5 px-sm-0 mx-auto">
      <table class="table table-hover table-inverse">
       <thead>
         <tr class="table-secondary">
@@ -17,9 +17,9 @@
             <%= order.created_at.to_s(:datetime_jp) %>
            </td>
             <td>
-             〒<%= order.postal_code %>
-             <%= order.address %>
-             <%= order.name %>
+             <p>〒<%= order.postal_code %></p>
+             <p><%= order.address %></p>
+             <p><%= order.name %></p>
             </td>
             <td>
              <% order.items.each do |item| %>
@@ -30,7 +30,11 @@
              <%= order.total_payment %>
             </td>
             <td>
-             <%= order.status %>
+             <%= order.status_i18n %>
+            </td>
+            <td>
+             <%=link_to order_path(order), class:"btn btn-sm btn-primary" do %>表示する
+            <% end %>
             </td>
            </tr>
            <% end %>

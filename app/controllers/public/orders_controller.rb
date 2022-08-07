@@ -17,7 +17,8 @@ class Public::OrdersController < ApplicationController
       order_detail.amount = cart_item.amount
       order_detail.save
     end
-    redirect_to orders_path
+    cart_items.destroy_all
+    redirect_to orders_complete_path
   end
 
 

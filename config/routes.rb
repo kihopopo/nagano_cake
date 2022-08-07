@@ -1,15 +1,19 @@
 Rails.application.routes.draw do
   namespace :admin do
+    get '/' => 'homes#top'
     get '/orders/:id', to:"orders#show"
     patch '/orders/:id', to:"orders#update"
   end
+  
+  
   namespace :admin do
     get 'order_details/show'
+    resources :genres
+    resources :items
+    resources :customers
   end
-  namespace :admin do
-    get 'homes/top'
-    get 'homes/about'
-  end
+
+  
   namespace :public do
     get 'orders/new'
     get 'orders/index'
@@ -29,13 +33,6 @@ Rails.application.routes.draw do
 
   root to: "public/homes#top"
   get '/about' => 'public/homes#about'
-  get'/admin' => 'admin/homes#top'
-
-  namespace :admin do
-    resources :genres
-    resources :items
-    resources :customers
-  end
 
 
   scope module: :public do
