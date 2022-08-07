@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 px-5 px-sm-0 mx-auto">
+      <h4>注文履歴詳細</h4>
+     　<table class="table">
+          <tr>
+           <td><strong>購入者</strong></td>
+            <td><%= @order.customer.full_name %></td>
+          </tr>
+          <tr>
+            <td><strong>注文日</strong></td>
+            <td><%= @order.created_at.to_s(:datetime_jp) %></td>
+          </tr>
+          <tr>
+            <td><strong>配送先</strong></td>
+            <td>〒<%= @order.postal_code %>
+                  <%= @order.address %>
+             　  　<%= @order.name %></td>
+          </tr>
+          <tr>
+            <td><strong>支払方法</strong></td>
+            <td><%= @order.payment_method_i18n %></td>
+          </tr>
+          <tr>
+            <td><strong>注文ステータス</strong></td>
+             <%= form_with model: @order, url: admin_path(@order)  do |f| %>
+            <td><%= f.select :status, Order.statuses_i18n.invert %>
+                <%= f.submit "更新" %></td>
+            <% end %>
+           </tr>
+          </thead>
+         </table>
+       <table class="table table-hover table-inverse">
+    　   <thead>
+        <tr class="table-secondary">
+          <th>商品名</th>
+          <th>単価(税込)</th>
+          <th>数量</th>
+          <th>小計</th>
+          <th>製作ステータス</th>
+        </tr>
+       </thead>
+         <% @total = 0 %>
+         <% @cart_items.each do |cart_item| %>
+         <tr>
+           <td>
+            <%= cart_item.item.name %>
+           </td>
+           <td>
+            <%= cart_item.item.with_tax_price %>
+           </td>
+           <td>
+            <%= cart_item.amount %>
+           </td>
+           <td>
+            <%= cart_item.subtotal %>
+            <% @total += cart_item.subtotal %>
+           </td>
+         </tr>
+         <% end %>
+       </table>
+        </div>
+      </div>
+    </div>
