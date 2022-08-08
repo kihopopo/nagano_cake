@@ -1,8 +1,13 @@
 class Public::OrdersController < ApplicationController
   def new
+    if current_customer.cart_items.size == 0
+      redirect_to cart_items_path
+    else
     @order = Order.new
     @customer = current_customer
+    end
   end
+  
 
   def create
     @order = Order.new(order_params)
