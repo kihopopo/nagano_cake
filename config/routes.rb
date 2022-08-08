@@ -1,19 +1,20 @@
 Rails.application.routes.draw do
   namespace :admin do
     get '/' => 'homes#top'
-    get '/orders/:id', to:"orders#show"
-    patch '/orders/:id', to:"orders#update"
+    #get '/orders/:id', to:"orders#show"
+   # patch '/orders/:id', to:"orders#update"
   end
-  
-  
+
+
   namespace :admin do
-    get 'order_details/show'
+    resources :orders
     resources :genres
     resources :items
     resources :customers
+    resources :order_details
   end
 
-  
+
   namespace :public do
     get 'orders/new'
     get 'orders/index'

@@ -23,42 +23,65 @@
           </tr>
           <tr>
             <td><strong>注文ステータス</strong></td>
-             <%= form_with model: @order, url: admin_path(@order)  do |f| %>
+             <%= form_with model: @order, url: admin_order_path(@order), method: :patch do |f| %>
             <td><%= f.select :status, Order.statuses_i18n.invert %>
-                <%= f.submit "更新" %></td>
+                <%= f.submit "更新", class:"btn btn-sm btn-success" %></td>
             <% end %>
            </tr>
           </thead>
          </table>
+      </div>
+     </div>
+     <div class = "row">
+      <div class = "col-md-9">
        <table class="table table-hover table-inverse">
-    　   <thead>
-        <tr class="table-secondary">
+    　  <thead>
+         <tr class="table-secondary">
           <th>商品名</th>
           <th>単価(税込)</th>
           <th>数量</th>
           <th>小計</th>
           <th>製作ステータス</th>
-        </tr>
-       </thead>
-         <% @total = 0 %>
-         <% @cart_items.each do |cart_item| %>
+         </tr>
+        </thead>
+         <% @order.order_details.each do |order_detail| %>
          <tr>
            <td>
-            <%= cart_item.item.name %>
+            <%= order_detail.item.name %>
            </td>
            <td>
-            <%= cart_item.item.with_tax_price %>
+            <%= order_detail.item.with_tax_price %>
            </td>
            <td>
-            <%= cart_item.amount %>
+            <%= order_detail.amount %>
            </td>
            <td>
-            <%= cart_item.subtotal %>
-            <% @total += cart_item.subtotal %>
+            <%= order_detail.item.with_tax_price*order_detail.amount %>
            </td>
+           <%= form_with model: @order, url: admin_order_detail_path(@order)  do |f| %>
+            <td><%= f.select :making_status, Order.making_statuses_i18n.invert %>
+                <%= f.submit "更新", class:"btn btn-sm btn-success" %></td>
+            <% end %>
          </tr>
          <% end %>
        </table>
-        </div>
       </div>
-    </div>
+      <div class = "col-md-3">
+        <table class="table">
+          <tr>
+           <td><strong>商品合計</strong></td>
+           <td><%= @order.total_payment-@order.shipping_cost %>円</td>
+          </tr>
+          <tr>
+           <td><strong>送料</strong></td>
+           <td><%= @order.shipping_cost %>円</td>
+          </tr>
+          <tr>
+           <td><strong>請求金額合計</strong></td>
+           <td><strong><%= @order.total_payment %>円</strong></td>
+          </tr>
+        </table>
+      </div>
+     </div>
+</div>
+
