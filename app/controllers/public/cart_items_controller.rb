@@ -8,6 +8,11 @@ class Public::CartItemsController < ApplicationController
 
   def create
     @cart_item = CartItem.new(cart_item_params)
+    #if @cart_items == nil
+       #render cart_items_path
+    #else
+       #redirect_to orders_new_path
+    #end
     @cart_item.customer_id = current_customer.id
     if current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])
       cart_item = current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])
