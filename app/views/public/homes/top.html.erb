@@ -1,10 +1,40 @@
-<div class="d-flex align-items-center justify-content-center">
-    <div class = "border">
+<div class = "container" >
+ <div class = "row">
+  <div class = "col-md-4">
+  </div>
+  <div class = "col-md-4">
+    <div class="d-flex align-items-center justify-content-center">
+      <div class = "border">
        <p>ようこそ、ながのCAKEへ!</p>
        <p>このサイトは、ケーキ販売のECサイトになります。</p>
        <p>会員でない方も商品の閲覧はできますが、</p>
        <p>購入には会員登録が必要になります。</p>
+      </div>
+    </div>
+  </div>
+  <div class = "col-md-4">
+  </div>
+ </div>
+  <h2>新着商品</h2>
+    <div class = "row">
+           <% @items.each do |item| %>
+           <div class = "col-md-3">
+             <div class = "card">
+             <div class = "card-body">
+             <%= link_to item_path(item.id) do %>
+             <%= image_tag item.get_image(200,200) %>
+             <% end %>
+             <div><%= item.name %></div>
+             <div><%=item.add_tax_price.to_s(:delimited) %>円</div>
+             </div>
+             </div>
+           </div>
+         <% end %>
     </div>
 </div>
-  
+
+<p class = "text-right">
+<%= link_to "全ての商品を見る>>",items_path  %>
+</p>
+
 
