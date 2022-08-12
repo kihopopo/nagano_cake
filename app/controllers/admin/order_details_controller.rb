@@ -5,7 +5,7 @@ class Admin::OrderDetailsController < ApplicationController
     if @order_detail.making_status == "making"
        @order_detail.order.update(status:"production")
     end
-    
+
     @count = 0
     @order_detail.order.order_details.each do |order_detail|
     if order_detail.making_status == "completion"
@@ -20,13 +20,13 @@ class Admin::OrderDetailsController < ApplicationController
 
     redirect_to admin_order_path(@order_detail.order)
     end
-  
+
   end
 
    private
 
   def order_detail_params
-  params.require(:order_detail).permit(:making_status)
+  params.require(:order_detail).permit(:making_status, :amount)
   end
 
 end

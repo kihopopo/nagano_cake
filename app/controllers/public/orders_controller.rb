@@ -7,7 +7,7 @@ class Public::OrdersController < ApplicationController
     @customer = current_customer
     end
   end
-  
+
 
   def create
     @order = Order.new(order_params)

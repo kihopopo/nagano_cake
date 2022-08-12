@@ -42,7 +42,7 @@
            </td>
           </tr>
           <tr>
-           <td><%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %></td>
+           <td><%= f.select :address_id, options_from_collection_for_select(@customer.addresses, :id, :address_display) %></td>
           </tr>
           <tr>
            <td>
